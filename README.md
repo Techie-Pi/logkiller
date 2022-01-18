@@ -1,2 +1,1 @@
-# logkiller
-The Log Killer is an open source file watcher that allows you to remove sensitive information from logs automatically 😎
+![logkiller](https://socialify.git.ci/Techie-Pi/logkiller/image?description=1&font=Raleway&logo=https%3A%2F%2Fgithub.com%2FTechie-Pi%2Flogkiller%2Fraw%2Fmain%2F.github%2Fimages%2Flogkiller-logo.png&pattern=Signal&theme=Dark)
