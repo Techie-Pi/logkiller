@@ -4,5 +4,18 @@
   "main": "index.js",
   "repository": "https://github.com/Techie-Pi/logkiller.git",
   "author": "TechiePi <techie@techiepi.dev>",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "yarn build && node ./dist/index.js",
+    "dev": "nodemon --exec \"yarn start\""
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "typescript": "^4.5.4"
+  }
 }
