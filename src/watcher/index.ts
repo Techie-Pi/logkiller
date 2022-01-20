@@ -44,14 +44,13 @@ class WatcherApi implements IWatcherApi {
                 generateExtensionsRegexFromArray(this.sourceCodeExtensions, this.path).forEach(val => filesToIgnoreArray.push(val))
                 return "";
             })
-            console.log(new RegExp(`/${filesToIgnoreArray.join("|")}/g`))
             filesToIgnore = filesToIgnoreArray;
         }
 
         const watcher = watch(this.path, {
             persistent: true,
 
-            ignored: new RegExp(`/${filesToIgnore}/gm`),
+            ignored: new RegExp(`/${filesToIgnore.join("|")}/`),
             ignoreInitial: options?.ignoreInitialFiles || undefined,
             atomic: true,
         });

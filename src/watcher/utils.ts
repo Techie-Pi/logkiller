@@ -4,5 +4,5 @@ function escapeRegex(string: string) {
 }
 
 export function generateExtensionsRegexFromArray(array: string[], path: string): string[] {
-    return array.map(val => `${escapeRegex(path)}/**/*.${escapeRegex(path)}`);
+    return array.map(val => `${escapeRegex(path)}\\/*\\*\\/*\.${escapeRegex(val)}`);
 }

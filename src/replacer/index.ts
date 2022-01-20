@@ -5,7 +5,7 @@ async function replace(string: string, replaceValue: string): Promise<string> {
     let value = string.slice();
 
     for(let i = 0; i < patterns.length; i++) {
-        value = await run(patterns[i], value, replaceValue);
+        value = await run(patterns[i], value, replaceValue, undefined, i);
     }
     return value;
 }

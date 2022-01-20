@@ -20,16 +20,21 @@ async function tryWriting5Times(path: string, result: string, i: number) {
 }
 
 async function checkAndReplaceFile(path: string): Promise<void> {
-    const content = await readFile(path);
-    const result = await replace(content.toString(), "[CENSORED]");
+    try {
+        const content = await readFile(path);
+        const result = await replace(content.toString(), "[CENSORED]");
 
-    if(content.toString() === result) {
-        logger.debug("Updated content is the same as the original. Not going to write the file");
-        return;
+        if(content.toString() === result) {
+            logger.debug("Updated content is the same as the original. Not going to write the file");
+            return;
+        }
+
+        logger.debug("Writing file with the updated results");
+        await tryWriting5Times(path, result, 0);
     }
-
-    logger.debug("Writing file with the updated results");
-    await tryWriting5Times(path, result, 0);
+    catch(e) {
+        logger.warn("Couldn't open or write file! Probably the file has been deleted");
+    }
 }
 
 export {
