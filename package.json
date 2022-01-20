@@ -1,0 +1,8 @@
+{
+  "name": "logkiller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Techie-Pi/logkiller.git",
+  "author": "TechiePi <techie@techiepi.dev>",
+  "license": "BSD-3-Clause"
+}
