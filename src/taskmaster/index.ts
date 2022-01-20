@@ -22,7 +22,7 @@ async function tryWriting5Times(path: string, result: string, i: number) {
 async function checkAndReplaceFile(path: string): Promise<void> {
     try {
         const content = await readFile(path);
-        const result = await replace(content.toString(), "[CENSORED]");
+        const result = await replace(content.toString(), process.env.WATCHER_REPLACEMENT_VALUE || "[CENSORED]");
 
         if(content.toString() === result) {
             logger.debug("Updated content is the same as the original. Not going to write the file");
