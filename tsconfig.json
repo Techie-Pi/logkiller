@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "ES2020",
+    "target": "es2021",
+    "module": "esnext",
     "sourceMap": true,
     "outDir": "./dist",
-    "removeComments": true,
-    "isolatedModules": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
 
     "strict": true,
     "skipLibCheck": true

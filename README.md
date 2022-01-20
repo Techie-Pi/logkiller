@@ -1,1 +1,1 @@
-![logkiller](https://socialify.git.ci/Techie-Pi/logkiller/image?description=1&font=Raleway&logo=https%3A%2F%2Fgithub.com%2FTechie-Pi%2Flogkiller%2Fraw%2Fmain%2F.github%2Fimages%2Flogkiller-logo.png&pattern=Signal&theme=Dark)
+![Log Killer](https://socialify.git.ci/Techie-Pi/logkiller/image?description=1&font=Raleway&logo=https%3A%2F%2Fgithub.com%2FTechie-Pi%2Flogkiller%2Fraw%2Fmain%2F.github%2Fimages%2Flogkiller-logo.png&pattern=Signal&theme=Dark)
