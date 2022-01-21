@@ -10,7 +10,6 @@
     "node": ">=16.13.0"
   },
   "scripts": {
-    "preinstall": "tsc",
     "build": "tsc",
     "start": "yarn build && node --experimental-specifier-resolution=node ./dist/index.js",
     "dev": "nodemon --exec \"yarn start\""
