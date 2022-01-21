@@ -1,6 +1,6 @@
 {
   "name": "logkiller",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/Techie-Pi/logkiller.git",
   "author": "TechiePi <techie@techiepi.dev>",
