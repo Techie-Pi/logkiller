@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Only current and active LTS versions are going to be tested
+        # and only 16.x onwards.
+        node-version: [16.x]
+  
+    steps:
+    - uses: actions/checkout@v2
+    - name: Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g yarn    
+    - name: yarn install and build
+      run: | 
+        yarn install
+        yarn build
+  
