@@ -1,6 +1,8 @@
 import {readFile, writeFile} from "fs/promises";
 import {replace} from "../replacer";
 import {createLogger} from "../logger";
+import Config from "../config";
+import {ConfigTypesEnvironment} from "../config/interfaces/IConfigApi";
 
 const logger = createLogger("Task Master");
 
@@ -22,7 +24,7 @@ async function tryWriting5Times(path: string, result: string, i: number) {
 async function checkAndReplaceFile(path: string): Promise<void> {
     try {
         const content = await readFile(path);
-        const result = await replace(content.toString(), process.env.WATCHER_REPLACEMENT_VALUE || "[CENSORED]");
+        const result = await replace(content.toString(), Config.getString(ConfigTypesEnvironment.ReplacementValue) || "[CENSORED]");
 
         if(content.toString() === result) {
             logger.debug("Updated content is the same as the original. Not going to write the file");
@@ -34,6 +36,7 @@ async function checkAndReplaceFile(path: string): Promise<void> {
     }
     catch(e) {
         logger.warn("Couldn't open or write file! Probably the file has been deleted");
+        logger.debug(`${e}`);
     }
 }
 

@@ -1,8 +1,8 @@
-import "dotenv/config";
-
 import Watcher from "./watcher";
 import {checkAndReplaceFile} from "./taskmaster";
 import {createLogger} from "./logger";
+import Config from "./config";
+import {ConfigTypesEnvironment} from "./config/interfaces/IConfigApi";
 
 const logger = createLogger("Main");
 
@@ -13,8 +13,8 @@ const includesAny = (string: string, array: string[]) => {
 }
 
 function start() {
-    const developmentMode = Boolean(process.env.WATCHER_DEVELOPMENT_MODE || false);
-    const path = process.env.WATCHER_ABSOLUTE_PATH;
+    const developmentMode = Config.getBoolean(ConfigTypesEnvironment.DevelopmentMode) || false;
+    const path = Config.getString(ConfigTypesEnvironment.AbsolutePath);
 
     if(path == null) {
         throw new Error("The environment variable \"WATCHER_ABSOLUTE_PATH\" is not defined: unknown path to watch!");

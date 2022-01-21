@@ -1,6 +1,7 @@
-import {spawnWorker} from "./spawn";
-import {spawnMultipleWorkers} from "./spawn";
+import {spawnMultipleWorkers, spawnWorker} from "./spawn";
 import {createLogger} from "../../logger";
+import Config from "../../config";
+import {ConfigTypesEnvironment} from "../../config/interfaces/IConfigApi";
 
 const logger = createLogger("Main RegExp Runner");
 
@@ -14,7 +15,8 @@ async function run(matcher: RegExp, string: string, replaceValue: string, timeou
     /// 500_000     -> 1000ms   (500ms          + 500ms)
     /// 1_000_000   -> 1500ms   (1000ms         + 500ms)
     /// 10_000_000  -> 10_500ms (10_000ms [top] + 500ms)
-    const baseMs = Number(process.env.WATCHER_BASE_MILLISECONDS) || 500;
+    const baseMs = Config.getNumber(ConfigTypesEnvironment.BaseMilliseconds) || 500;
+    logger.debug(`Timeout assigned to this task: ${baseMs}ms`);
     const _timeout: number = timeout
         || Math.round((((stringLength / 500_000) > 10_000 ? 10_000 : stringLength / 500_000) * 500) + baseMs);
 
