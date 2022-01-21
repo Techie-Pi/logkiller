@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        # Only current and active LTS versions are going to be tested
+        # and only 16.x onwards.
+        node-version: [16.x]
   
     steps:
     - uses: actions/checkout@v2
