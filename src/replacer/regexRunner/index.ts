@@ -14,8 +14,9 @@ async function run(matcher: RegExp, string: string, replaceValue: string, timeou
     /// 500_000     -> 1000ms   (500ms          + 500ms)
     /// 1_000_000   -> 1500ms   (1000ms         + 500ms)
     /// 10_000_000  -> 10_500ms (10_000ms [top] + 500ms)
+    const baseMs = Number(process.env.WATCHER_BASE_MILLISECONDS) || 500;
     const _timeout: number = timeout
-        || Math.round((((stringLength / 500_000) > 10_000 ? 10_000 : stringLength / 500_000) * 500) + 500);
+        || Math.round((((stringLength / 500_000) > 10_000 ? 10_000 : stringLength / 500_000) * 500) + baseMs);
 
     /// When the string is bigger than 50_000 characters (should benchmark to come up with a logic value), the string
     /// is split in newlines (to prevent issues with RegEx detection later on) and then distributed across multiple
