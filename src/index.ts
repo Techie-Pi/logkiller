@@ -34,7 +34,7 @@ function start() {
         await checkAndReplaceFile(path);
         skip[path] = false;
     }, undefined, {
-        ignoredFiles: ["source-code"],
+        ignoredFiles: [Config.getString(ConfigTypesEnvironment.IgnoredFilesRegex) || "source-code"],
         ignoreInitialFiles: true,
     });
 }
