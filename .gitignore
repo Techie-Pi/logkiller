@@ -105,3 +105,6 @@ dist
 
 # IntelliJ-IDEs
 .idea/
+
+# Files to test with locally
+dev_test/
