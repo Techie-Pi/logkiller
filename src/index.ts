@@ -20,6 +20,7 @@ function start() {
         throw new Error("The environment variable \"WATCHER_ABSOLUTE_PATH\" is not defined: unknown path to watch!");
     }
 
+    const checkInitialFiles = Config.getBoolean(ConfigTypesEnvironment.CheckInitialFiles) == null;
     const watcher = new Watcher(path);
     const skip: any = {};
     watcher.watch(async (path: string, ...data) => {
@@ -35,7 +36,7 @@ function start() {
         skip[path] = false;
     }, undefined, {
         ignoredFiles: [Config.getString(ConfigTypesEnvironment.IgnoredFilesRegex) || "source-code"],
-        ignoreInitialFiles: true,
+        ignoreInitialFiles: checkInitialFiles == null ? true : checkInitialFiles,
     });
 }
 

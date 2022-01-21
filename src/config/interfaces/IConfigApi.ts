@@ -4,6 +4,7 @@ export enum ConfigTypesEnvironment {
     ReplacementValue = "WATCHER_REPLACEMENT_VALUE",
     BaseMilliseconds = "WATCHER_BASE_MILLISECONDS",
     IgnoredFilesRegex = "WATCHER_REGEX_IGNORED_FILES",
+    CheckInitialFiles = "WATCHER_CHECK_INITIAL_FILES",
 }
 
 export interface IConfigApi {
