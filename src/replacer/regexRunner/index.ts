@@ -31,8 +31,8 @@ async function run(matcher: RegExp, string: string, replaceValue: string, timeou
     logger.error(`New string with ${stringLength} characters${Number.isInteger(matcherId) ?
         ` and a matcher ID of ${matcherId}` :
         ""}`);
-
-    if(stringLength < 50_000) {
+    
+    if(stringLength < (Config.getNumber(ConfigTypesEnvironment.CharacterThresholdForMultithreading) || 50_000)) {
         return await spawnWorker(matcher, string, replaceValue, _timeout);
     }
     else {

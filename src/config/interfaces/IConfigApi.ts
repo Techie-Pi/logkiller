@@ -5,6 +5,7 @@ export enum ConfigTypesEnvironment {
     BaseMilliseconds = "WATCHER_BASE_MILLISECONDS",
     IgnoredFilesRegex = "WATCHER_REGEX_IGNORED_FILES",
     CheckInitialFiles = "WATCHER_CHECK_INITIAL_FILES",
+    CharacterThresholdForMultithreading = "WATCHER_CHARACTER_THRESHOLD_MULTITHREADING",
 }
 
 export interface IConfigApi {
