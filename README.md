@@ -18,6 +18,9 @@ In order to modify or contribute to this project, you may need extra steps for t
 ## Contributing
 Read [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## Documentation
+You can check the documentation [here](./docs/index.md)
+
 ## FAQ
 ### Why not ``npm``?
 This project handles personal information and thus, **everything** should be installed from the lockfile.
