@@ -11,7 +11,7 @@ async function run(matcher: RegExp, string: string, replaceValue: string, timeou
     /// Each 500k lines, 500ms are added to the timeout (on top of a base of 500ms). A top is set to 10500ms
     /// This means the following
     /// 0           -> 500ms
-    /// 250_000     -> 750ms    (500ms          + 250ms)
+    /// 250_000     -> 750ms    (500ms          + 500ms)
     /// 500_000     -> 1000ms   (500ms          + 500ms)
     /// 1_000_000   -> 1500ms   (1000ms         + 500ms)
     /// 10_000_000  -> 10_500ms (10_000ms [top] + 500ms)
@@ -31,7 +31,7 @@ async function run(matcher: RegExp, string: string, replaceValue: string, timeou
     logger.error(`New string with ${stringLength} characters${Number.isInteger(matcherId) ?
         ` and a matcher ID of ${matcherId}` :
         ""}`);
-    
+
     if(stringLength < (Config.getNumber(ConfigTypesEnvironment.CharacterThresholdForMultithreading) || 50_000)) {
         return await spawnWorker(matcher, string, replaceValue, _timeout);
     }
