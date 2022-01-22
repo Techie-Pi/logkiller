@@ -5,7 +5,7 @@
 2. RegEx
    1. [Integrated ``source-code`` RegEx](./regex/source-code.md) 💭
    2. Engine
-      1. [Multithreading](./regex/engine/multithreading.md) 💭
+      1. [Multithreading](./regex/engine/multithreading.md)
 3. Examples
    1. [BCrypt Hashes](./examples/bcrypt.md)
    2. [IPs](./examples/ip.md)
